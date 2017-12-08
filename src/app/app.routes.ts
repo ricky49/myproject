@@ -5,7 +5,7 @@ import { DashboardComponent } from 'app/dashboard/dashboard.component';
 
 const routes = [
     { path: '', component: LoginComponent },
-    { path: 'users', component: UsersComponent },
+    { path: 'users', loadChildren: './users/users.module' },
     { path: 'dashboard', component: DashboardComponent }
 ]
 
