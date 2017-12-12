@@ -2,22 +2,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import appRoutes from './app.routes';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent} from './components/dashboard/dashboard.component'
+import UsersModule from 'app/components/users/users.module';
+import { NotFoundComponent } from 'app/components/not-found/not-found.component';
+import { FormsModule } from '@angular/forms';
+import { AuthGuard } from 'app/services/login/auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     NgbModule.forRoot(),
+    UsersModule,
     appRoutes
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
