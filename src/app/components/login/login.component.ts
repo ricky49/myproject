@@ -3,6 +3,8 @@ import {NgForm} from '@angular/forms';
 import { NgModel } from '@angular/forms/src/directives/ng_model';
 import { UsersService } from 'app/services/users/users.service';
 import { Users } from 'app/models/users';
+import { forEach } from '@angular/router/src/utils/collection';
+import { Router } from '@angular/router';
 
 
 
@@ -13,25 +15,32 @@ import { Users } from 'app/models/users';
 })
 export class LoginComponent implements OnInit {
 users: Users [];
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService,
+              private router: Router) { }
 
   ngOnInit() {
     this.getUsers();
   }
 
 loginUser(f: NgModel) {
+
   const currentUser = f.value;
 
-  for (let user of this.users){
-    if ( user.mail === currentUser.mail && user.password === currentUser.password)
-    {
-       console.log(user.mail);
+  this.users.forEach ((x) => {
+    if ( x.mail === currentUser.mail && x.password === currentUser.password ) {
+      this.usersService.setUserLogIn();
+      this.router.navigate(['dashboard']);
+
+    } else {
+      console.log('autenticacion fallo');
     }
-  }
+  })
+
+
 
 }
  getUsers() {
  this.usersService.getUsers()
- .subscribe(Users => this.users = Users);
+ .subscribe(users => this.users = users);
  }
 }
