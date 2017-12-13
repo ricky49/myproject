@@ -26,17 +26,17 @@ loginUser(f: NgModel) {
 
   const currentUser = f.value;
 
-  this.users.forEach ((x) => {
+  this.users.every((x, index) => {
+
     if ( x.mail === currentUser.mail && x.password === currentUser.password ) {
       this.usersService.setUserLogIn();
       this.router.navigate(['dashboard']);
-
+      return false;
     } else {
       console.log('autenticacion fallo');
     }
-  })
 
-
+  });
 
 }
  getUsers() {
