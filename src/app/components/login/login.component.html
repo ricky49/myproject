@@ -1,6 +1,7 @@
 
 <div class="wrapper">
-    <form class="form-signin" #f="ngForm" (ngSubmit)="loginUser(f)">       
+    <form class="form-signin" #f="ngForm" (ngSubmit)="loginUser(f)">
+        <ngb-alert *ngIf="failMessage" type="danger" (close)="failMessage = null">{{ failMessage }}</ngb-alert>       
       <h2 class="form-signin-heading">Please login</h2>
       <br>
       <input type="text" class="form-control" name="mail" #mail="ngModel" placeholder="Email Address" ngModel required="" autofocus="" />
@@ -10,6 +11,6 @@
       <label class="checkbox">
         <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
       </label>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" value="Login">Login</button>   
+      <button class="btn btn-lg btn-primary btn-block" type="submit" value="Login">Login</button>  
     </form>
   </div>
