@@ -4,4 +4,5 @@ name: String
 lastname: String
 mail: String
 password: any
+document: number
 }

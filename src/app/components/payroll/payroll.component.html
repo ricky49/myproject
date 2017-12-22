@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Informacion de Usuarios</h2><br>           
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+        <th>Cedula</th>
+        <th>Sueldo base</th>
+        <th>Impuestos</th>
+        <th>Sueldo Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let payroll of payrolls">
+        <td>{{payroll.id}}</td>
+        <td>{{payroll.name}}</td>
+        <td>{{payroll.lastname}}</td>
+        <td>{{payroll.mail}}</td>
+        <td>{{payroll.document}}</td>
+        <td>{{payroll.payment}}</td>
+        <td>{{payroll.taxes}}</td>
+        <td>{{payroll.total_payment}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

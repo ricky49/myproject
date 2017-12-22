@@ -9,6 +9,8 @@ import UsersModule from 'app/components/users/users.module';
 import { NotFoundComponent } from 'app/components/not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from 'app/services/login/auth.guard';
+import PayrollModule from 'app/components/payroll/payroll.module';
+import HistoryModule from 'app/components/history/history.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { AuthGuard } from 'app/services/login/auth.guard';
     FormsModule,
     NgbModule.forRoot(),
     UsersModule,
+    PayrollModule,
+    HistoryModule,
     appRoutes
   ],
   providers: [AuthGuard],
